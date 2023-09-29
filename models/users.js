@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../controllers/connection');
 
 class Users extends Model {}
 
@@ -13,11 +13,11 @@ Users.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: flase,
+      allowNull: false,
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: flase,
+        allowNull: false,
       },
   },
   {
