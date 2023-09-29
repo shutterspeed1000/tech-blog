@@ -1,6 +1,6 @@
-const Users = require('./Users');
-const Posts = require('./Posts');
-const Comments = require('./Comments');
+const Users = require('./users');
+const Posts = require('./posts');
+const Comments = require('./comments');
 
 
 //Users can have many posts

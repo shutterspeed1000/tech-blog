@@ -16,7 +16,11 @@ Comments.init(
       allowNull: true,
     },
     postid: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'posts',
+          key: 'id',
+        },
         allowNull: true,
       },
   },
