@@ -4,9 +4,9 @@ const Comments = require('./Comments');
 
 
 
-// Gallery.hasMany(Painting, {
-//   foreignKey: 'gallery_id',
-// });
+Users.hasMany(Posts, {
+   foreignKey: 'user_id',
+ });
 
 // Painting.belongsTo(Gallery, {
 //   foreignKey: 'gallery_id',
