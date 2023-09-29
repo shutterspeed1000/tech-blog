@@ -10,9 +10,6 @@ router.get('/', async (req, res) => {
     include: [{ model: Users }, { model: Comments }]
 
 }
-
-
-
     );
   
     // Return the bookData promise inside of the JSON response

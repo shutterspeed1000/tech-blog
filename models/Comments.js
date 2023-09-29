@@ -23,6 +23,14 @@ Comments.init(
         },
         allowNull: true,
       },
+      user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+        allowNull: true,
+      },
   },
   {
     sequelize,
