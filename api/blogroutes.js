@@ -8,12 +8,12 @@ router.get('/', async (req, res) => {
     const blogPosts = await Posts.findAll(
 {
     include: [{ model: Users }, { model: Comments }]
-
 }
     );
+    const retPosts = blogPosts.map((blogPost) => blogPost.get())
   
     // Return the bookData promise inside of the JSON response
-    return res.json(blogPosts);
+    return res.render('login', retPosts)
   });
 
 
