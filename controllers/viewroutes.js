@@ -17,10 +17,13 @@ router.get('/blog', async (req, res) => {
   include: [{ model: Users }, { model: Comments }]
 }
   );
-  const retPosts = blogPosts.map((blogPost) => blogPost.get({ plain: true }))
+  const retPosts = blogPosts.map(post => post.get({ plain: true }))
 
   // Return the bookData promise inside of the JSON response
-  return res.render('blog',retPosts)
+  console.log(retPosts)
+  res.render('blog',{retPosts})
 });
+
+
 
   module.exports = router;
