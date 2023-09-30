@@ -5,7 +5,7 @@ const Comments = require('./comments');
 
 //Many posts belong to one user
 Posts.belongsTo(Users, {
-  foreignKey: 'user_id'
+  foreignKey: 'id'
 
 })
 
@@ -16,7 +16,7 @@ Posts.belongsTo(Users, {
 
 //Many comments can belong to one user
 Comments.belongsTo(Users, {
-  foreignKey: 'user_id'
+  foreignKey: 'id'
 
 })
 
