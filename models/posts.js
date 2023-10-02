@@ -11,25 +11,19 @@ Posts.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     text: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'users',
-          key: 'id',
-        },
-
-        allowNull: false,
-      },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    timestamps: false,
     modelName: 'posts',
   }
 );

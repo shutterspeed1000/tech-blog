@@ -1,0 +1,11 @@
+<div>
+
+  {{#each retPosts as |blog|}}
+    <div>
+      <h2>{{title}}</h2>
+      <p>{{text}}</p>
+      <p>Created by: {{user.username}} on {{createdAt}}</p>
+    </div>
+  {{/each}}
+
+</div>
