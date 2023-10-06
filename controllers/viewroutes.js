@@ -37,5 +37,16 @@ router.get('/', async (req, res) => {
 });
 
 
+//Login Page
+router.get('/login', async (req, res) => {
+  res.render('login')
+});
+
+
+//dash Page
+router.get('/dash', async (req, res) => {
+  res.render('dash')
+});
+
 
   module.exports = router;
