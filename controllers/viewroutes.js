@@ -21,12 +21,13 @@ router.get('/blog', async (req, res) => {
   res.render('blog',{retPosts, logged_in: req.session.logged_in})
 });
 
-
+// return main page of blog posts ordered new to old
 router.get('/', async (req, res) => {
   // Store the bookData in a variable once the promise is resolved.
   const blogPosts = await Posts.findAll(
 {
-  include: [{ model: Users }]
+  include: [{ model: Users }],
+  order: [['createdAt', 'DESC']],
 }
   );
   const retPosts = blogPosts.map(post => post.get({ plain: true }))
@@ -48,9 +49,27 @@ router.get('/login', async (req, res) => {
 // });
 
 
-//dash Page
-router.get('/dash', async (req, res) => {
-  res.render('dash',{logged_in: req.session.logged_in})
+// //dash Page
+// router.get('/dashboard', async (req, res) => {
+//   res.render('dashboard',{logged_in: req.session.logged_in})
+// });
+
+
+// return dashboard page of  a users blog posts ordered new to old
+router.get('/dashboard', async (req, res) => {
+  // Store the bookData in a variable once the promise is resolved.
+  const blogPosts = await Posts.findAll(
+{
+  where: { email: "pw@pw.com" },
+  include: [{ model: Users }],
+  order: [['createdAt', 'DESC']],
+}
+  );
+  const retPosts = blogPosts.map(post => post.get({ plain: true }))
+
+  
+  console.log(retPosts)
+  res.render('dashboard',{retPosts, logged_in: req.session.logged_in})
 });
 
 
