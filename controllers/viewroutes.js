@@ -18,7 +18,7 @@ router.get('/blog', async (req, res) => {
 
   // Return the bookData promise inside of the JSON response
   console.log(retPosts)
-  res.render('blog',{retPosts})
+  res.render('blog',{retPosts, logged_in: req.session.logged_in})
 });
 
 
@@ -31,21 +31,26 @@ router.get('/', async (req, res) => {
   );
   const retPosts = blogPosts.map(post => post.get({ plain: true }))
 
-  // Return the bookData promise inside of the JSON response
+  
   console.log(retPosts)
-  res.render('homepage',{retPosts, loggedin: false})
+  res.render('homepage',{retPosts, logged_in: req.session.logged_in})
 });
 
 
 //Login Page
 router.get('/login', async (req, res) => {
-  res.render('login')
+  res.render('login',{logged_in: req.session.logged_in})
 });
+
+// //logout
+// router.get('/logout', async (req, res) => {
+//   res.render('logout',{logged_in: req.session.logged_in})
+// });
 
 
 //dash Page
 router.get('/dash', async (req, res) => {
-  res.render('dash')
+  res.render('dash',{logged_in: req.session.logged_in})
 });
 
 
