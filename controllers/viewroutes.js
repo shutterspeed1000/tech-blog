@@ -1,27 +1,11 @@
 const router = require('express').Router();
+const session = require('express-session');
 const {Users, Posts, Comments} = require('../models');
+const { Session } = require('express-session');
+const withAuth = require('../utils/auth');
 
 
-router.get('/post', (req, res) => {
-  res.render('post');
-});
- 
-
-router.get('/blog', async (req, res) => {
-  // Store the bookData in a variable once the promise is resolved.
-  const blogPosts = await Posts.findAll(
-{
-  include: [{ model: Users }, { model: Comments }]
-}
-  );
-  const retPosts = blogPosts.map(post => post.get({ plain: true }))
-
-  // Return the bookData promise inside of the JSON response
-  console.log(retPosts)
-  res.render('blog',{retPosts, logged_in: req.session.logged_in})
-});
-
-// return main page of blog posts ordered new to old
+//Show mainpage - auth not needed
 router.get('/', async (req, res) => {
   // Store the bookData in a variable once the promise is resolved.
   const blogPosts = await Posts.findAll(
@@ -34,35 +18,26 @@ router.get('/', async (req, res) => {
 
   
   console.log(retPosts)
-  res.render('homepage',{retPosts, logged_in: req.session.logged_in})
+  res.render('homepage',{retPosts, logged_in:true})
 });
 
 
-//Login Page
+//Login Page - Auth not needed
 router.get('/login', async (req, res) => {
   res.render('login',{logged_in: req.session.logged_in})
 });
 
-// //logout
-// router.get('/logout', async (req, res) => {
-//   res.render('logout',{logged_in: req.session.logged_in})
-// });
 
-
-// //dash Page
-// router.get('/dashboard', async (req, res) => {
-//   res.render('dashboard',{logged_in: req.session.logged_in})
-// });
-
-
-// return dashboard page of  a users blog posts ordered new to old
-router.get('/dashboard', async (req, res) => {
+// return dashboard page of  a users blog posts ordered new to old - auth needed
+router.get('/dashboard', withAuth, async (req, res) => {
   // Store the bookData in a variable once the promise is resolved.
   const blogPosts = await Posts.findAll(
 {
-  where: { email: "pw@pw.com" },
   include: [{ model: Users }],
   order: [['createdAt', 'DESC']],
+  where: {
+    user_id: req.session.user_id,
+  }
 }
   );
   const retPosts = blogPosts.map(post => post.get({ plain: true }))
@@ -71,6 +46,15 @@ router.get('/dashboard', async (req, res) => {
   console.log(retPosts)
   res.render('dashboard',{retPosts, logged_in: req.session.logged_in})
 });
+
+
+// New Post page - auth needed
+router.get('/newpost', withAuth, async (req, res) => {
+
+
+  res.render('newPost',{logged_in:true})
+});
+
 
 
   module.exports = router;

@@ -1,4 +1,9 @@
-<h2>Posts created by {{user.name}}
+
+   <a href="/newpost"> 
+        <button class="GFG"> 
+            New Post 
+        </button> 
+    </a> 
 
 <div>
 
@@ -17,9 +22,10 @@
           </div>
         </p>
 
-        {{#if logged_in}}
-          <a href="#" class="card-link" id="comment{{id}}">Comment</a>
-        {{/if}}
+  
+  {{#if logged_in}}
+             <a href="#" class="card-link">Comment</a>
+       {{/if}} 
 
       </div>
     </div>

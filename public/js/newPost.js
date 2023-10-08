@@ -1,15 +1,25 @@
-const newPost = async () => {
-    const response = await fetch('/api/users/logout', {
+const newPostHandler = async (event) => {
+  event.preventDefault();
+
+  const text = document.querySelector('#newposttext').value.trim();
+
+
+  if (text) {
+    console.log("posted")
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({text}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
-  
+
     if (response.ok) {
-      document.location.replace('/');
-      
+      document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      alert('Failed to create post');
     }
-  };
-  
-  document.querySelector('#newPost').addEventListener('click', newPost);
+  }
+};
+
+document.querySelector('#postSub').addEventListener('click', newPostHandler);
