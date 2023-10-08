@@ -3,6 +3,6 @@ require('dotenv').config()
 
 
 // Create a connection object
-const sequelize = new Sequelize(process.env.JAWDB_URL);
+const sequelize = new Sequelize(process.env.JAWSDB_URL);
 
 module.exports = sequelize;
