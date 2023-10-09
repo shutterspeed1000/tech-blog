@@ -15,14 +15,17 @@
           </div>
         </p>
 
-                  <a href="#" class="card-link">Comment</a>
-
         {{#if logged_in}}
+        <a href="#" class="card-link">Comment</a>
+
+        {{else}}
 
         {{/if}}
+
+        {{comments}}
 
       </div>
     </div>
   {{/each}}
-<script src="../public/js/newComment.js>
+   <script src="./js/logout.js"></script>
 </div>

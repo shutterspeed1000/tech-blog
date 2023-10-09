@@ -7,18 +7,20 @@ const Comments = require('./Comments');
 Posts.belongsTo(Users, {
   foreignKey: 'user_id',
   allowNull: false,
+  onDelete: "CASCADE"
 })
 
- //Post can have many comments
- Comments.belongsTo(Posts, {
+Posts.hasMany(Comments, {
   foreignKey: 'post_id',
-  allowNull: false,
+  onDelete: "CASCADE",
+  allowNull: false
 });
 
 //Many comments can belong to one user
 Comments.belongsTo(Users, {
   foreignKey: 'user_id',
   allowNull: false,
+  onDelete: "CASCADE"
 })
 
 module.exports = { Users, Posts, Comments };

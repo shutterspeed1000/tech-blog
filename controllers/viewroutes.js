@@ -7,18 +7,28 @@ const withAuth = require('../utils/auth');
 
 //Show mainpage - auth not needed
 router.get('/', async (req, res) => {
-  // Store the bookData in a variable once the promise is resolved.
   const blogPosts = await Posts.findAll(
 {
-  include: [{ model: Users }],
+  include: [
+    
+    { model: Users,},
+
+      // {
+      //     model: Comments,
+      //     attributes: ['comment', 'user_id',],
+      //     include: {
+      //         model: Users,
+      //         attributes: ['name']
+      //     }
+      //   }
+  
+  ],
   order: [['createdAt', 'DESC']],
 }
   );
   const retPosts = blogPosts.map(post => post.get({ plain: true }))
-
-  
-  console.log(retPosts)
-  res.render('homepage',{retPosts, logged_in:true})
+ console.log(retPosts)
+  res.render('homepage',{retPosts,logged_in: req.session.logged_in})
 });
 
 
