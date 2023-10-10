@@ -1,7 +1,7 @@
 
 <div class="card" style="width: 75%;">
       <div class="card-body">
-        <a href='/post/{{id}}'><h5 class="card-title">Post Title: {{post.title}}</h5></a>
+        <a href='/post/{{id}}'><h2 class="card-title">Post Title: {{post.title}}</h2></a>
         <h6 class="card-subtitle mb-2 text-muted">Created by:
           {{post.user.name}}
           on
@@ -13,20 +13,31 @@
         </p>
 
         {{#if logged_in}}
-        <a href="#" class="card-link">Comment</a>
+
+
+        <label>New Comment</label>
+        <input class="newcommenttext"></input>
+        <button class="card-link newComment" data-id="{{post.id}}">Comment</button>
 
         {{else}}
 
         {{/if}}
-<div>
-  {{#if logged_in}}
-          test
-            {{!-- <a href="#" class="card-link">Comment</a> --}}
-          {{/if}}
-    <div>
 
-        {{#each post.comments}}
+      
 
-<p>{{comment}}</p>
+<ul class="list-group">
+
+    {{#each post.comments}}
+
+    <li class="list-group-item>{{comment}}</li>
+
         {{/each}}
+
+        
+</ul>
+
+
+
 </div>
+
+

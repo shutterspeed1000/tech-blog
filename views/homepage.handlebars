@@ -4,8 +4,8 @@
 
     <div class="card" style="width: 75%;">
       <div class="card-body">
-        <a href="/post/{{id}}"><h5 class="card-title">Post Title:
-            {{title}}</h5></a>
+        <a href="/post/{{id}}"><h2 class="card-title">Post Title:
+            {{title}}</h2></a>
         <h6 class="card-subtitle mb-2 text-muted">Created by:
           {{user.name}}
           on
@@ -16,17 +16,19 @@
           </div>
         </p>
 
-        <div>
         
+   <h2>Comments</h2>
+          <ul class="list-group">
 
-          {{#each comments}}
+            {{#each comments}}
 
-            <p>{{comment}}</p>
-          {{/each}}
-        </div>
+              <li class="list-group-item">{{comment}}</li>
 
-      </div>
+            {{/each}}
+          </ul>
+
+      
     </div>
   {{/each}}
-  <script src="./js/logout.js"></script>
+
 </div>
