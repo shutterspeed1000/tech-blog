@@ -4,28 +4,29 @@
 
     <div class="card" style="width: 75%;">
       <div class="card-body">
-        <h5 class="card-title">Post by: {{title}}</h5>
+        <a href="/post/{{id}}"><h5 class="card-title">Post Title:
+            {{title}}</h5></a>
         <h6 class="card-subtitle mb-2 text-muted">Created by:
           {{user.name}}
           on
           {{createdAt}}</h6>
         <p class="card-text">
           <div>
-        <h3>{{text}}</h3>
+            <h3>{{text}}</h3>
           </div>
         </p>
 
-        {{#if logged_in}}
-        <a href="#" class="card-link">Comment</a>
+        <div>
+        
 
-        {{else}}
+          {{#each comments}}
 
-        {{/if}}
-
-        {{comments}}
+            <p>{{comment}}</p>
+          {{/each}}
+        </div>
 
       </div>
     </div>
   {{/each}}
-   <script src="./js/logout.js"></script>
+  <script src="./js/logout.js"></script>
 </div>

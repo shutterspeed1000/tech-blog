@@ -1,0 +1,32 @@
+
+<div class="card" style="width: 75%;">
+      <div class="card-body">
+        <a href='/post/{{id}}'><h5 class="card-title">Post Title: {{post.title}}</h5></a>
+        <h6 class="card-subtitle mb-2 text-muted">Created by:
+          {{post.user.name}}
+          on
+          {{post.createdAt}}</h6>
+        <p class="card-text">
+          <div>
+        <h3>{{post.text}}</h3>
+          </div>
+        </p>
+
+        {{#if logged_in}}
+        <a href="#" class="card-link">Comment</a>
+
+        {{else}}
+
+        {{/if}}
+<div>
+  {{#if logged_in}}
+          test
+            {{!-- <a href="#" class="card-link">Comment</a> --}}
+          {{/if}}
+    <div>
+
+        {{#each post.comments}}
+
+<p>{{comment}}</p>
+        {{/each}}
+</div>
