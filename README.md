@@ -80,16 +80,15 @@ Technology used based on class materal:
 
 ## Link to live site
 
-https://shutterspeed1000.github.io/Sean-Portfolio/
+https://spw-tech-blog-3c01776e578e.herokuapp.com/
 
 ## Screenshots
 
-![Screenshot of Website](./assets/images/sw-port.png)
+![Screenshot of Website](https://spw-tech-blog-3c01776e578e.herokuapp.com/SS-techblog.png)
 
 ## Credits
 
-Thank you Jose Lopez for the amazing tutoring on Flexbox, proper semantics, and CSS.
-Smartdraw.io used as a sample link to network work.
+Thank you Jose Lopez for the amazing tutoring on Handlebars.
 
 ## License
 
