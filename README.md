@@ -1,12 +1,3 @@
-# 14 Model-View-Controller (MVC): Tech Blog
-
-## Your Task
-
-
-
-
-
-
 # MVC Tech Blog
 
 ## Description
