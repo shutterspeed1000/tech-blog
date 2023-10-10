@@ -1,9 +1,8 @@
-
-   <a href="/newpost"> 
-        <button class="GFG"> 
-            New Post 
-        </button> 
-    </a> 
+<a href="/newpost">
+  <button class="GFG">
+    New Post
+  </button>
+</a>
 
 <div>
 
@@ -18,20 +17,14 @@
           {{createdAt}}</h6>
         <p class="card-text">
           <div>
-        <h3>{{text}}</h3>
+            <h3>{{text}}</h3>
           </div>
         </p>
 
-  <button class="del-button" data-id="{{id}}">Delete Post</button>
-
-  {{#if logged_in}}
-             <a href="#" class="card-link">Comment</a>
-       {{/if}} 
+        <button class="del-button" data-id="{{id}}">Delete Post</button>
 
       </div>
     </div>
   {{/each}}
-
-
 
 </div>

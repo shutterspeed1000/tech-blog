@@ -7,10 +7,13 @@ const withAuth = require("../utils/auth");
 //Show mainpage - auth not needed
 router.get("/", async (req, res) => {
   const blogPosts = await Posts.findAll({
-    include: [Users, {
-      model: Comments,
-      include: [Users],
-    },],
+    include: [
+      Users,
+      {
+        model: Comments,
+        include: [Users],
+      },
+    ],
     // order: [['createdAt', 'DESC']],
   });
   const retPosts = blogPosts.map((post) => post.get({ plain: true }));

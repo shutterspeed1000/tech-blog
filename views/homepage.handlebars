@@ -18,11 +18,16 @@
 
         
    <h2>Comments</h2>
+   <h4>Click Title to add</h4>
           <ul class="list-group">
 
             {{#each comments}}
 
-              <li class="list-group-item">{{comment}}</li>
+                     <li class="list-group-item">
+                <p>{{comment}}</p>
+<p>Posted by: {{user.name}} at {{createdAt}} </p>
+
+              </li>
 
             {{/each}}
           </ul>

@@ -1,7 +1,7 @@
 
 <div class="card" style="width: 75%;">
       <div class="card-body">
-        <a href='/post/{{id}}'><h2 class="card-title">Post Title: {{post.title}}</h2></a>
+        <h2 class="card-title">Post Title: {{post.title}}</h2>
         <h6 class="card-subtitle mb-2 text-muted">Created by:
           {{post.user.name}}
           on
@@ -25,19 +25,22 @@
 
       
 
-<ul class="list-group">
 
-    {{#each post.comments}}
+         <h2>Comments</h2>
+          <ul class="list-group">
 
-    <li class="list-group-item>{{comment}}</li>
+            {{#each post.comments}}
 
-        {{/each}}
+              <li class="list-group-item">
+                <p>{{comment}}</p>
+<p>Posted by: {{user.name}} at {{createdAt}} </p>
 
-        
-</ul>
+              </li>
 
+            {{/each}}
+          </ul>
 
-
+      
 </div>
 
 
